@@ -1,9 +1,8 @@
 html,
 body {
   background: #2bdd32;
-  /*overflow: hidden;*/
-  -webkit-app-region: drag;
-  -webkit-user-select: none;
+  /*-webkit-app-region: drag;
+  -webkit-user-select: none;*/
 }
 
 h1 {
