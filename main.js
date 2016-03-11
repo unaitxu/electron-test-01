@@ -10,7 +10,9 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     height: 400,
     width: 400,
-    frame: false
+    frame: false,
+    center: true,
+    resizable: false,
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/app/index.html');

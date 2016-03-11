@@ -1,6 +1,7 @@
 html,
 body {
   background: #2bdd32;
+  -webkit-app-region: drag;
 }
 
 h1 {
@@ -11,6 +12,7 @@ h1 {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
+  -webkit-app-region: no-drag;
 }
 
 .flex-item {
