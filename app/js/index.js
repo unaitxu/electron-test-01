@@ -17,7 +17,11 @@ $(function() {
 
   $('.action-container').on( 'click', '#reset', function () {
     counter = 0;
-    var notify = new Notification('title', { body: 'Reset!' });
+    var options = {
+      body: 'Reset all the things!',
+      icon: '../images/all-the-things.jpg'
+    }
+    var n = new Notification('Calc reset', options);
     $('#title').text('Add all the things!');
   });
 
