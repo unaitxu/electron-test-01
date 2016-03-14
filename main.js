@@ -1,10 +1,7 @@
-'use strict';
-
 var app = require('app');
 var BrowserWindow = require('browser-window');
+var Tray = require('tray');
 var mainWindow = null;
-
-// require('electron-reload')(__dirname);
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({

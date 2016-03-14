@@ -1,6 +1,8 @@
 $(function() {
   var counter = 0;
   var status = 'add';
+  Notification.requestPermission();
+
   $('.flex-container').on( 'click', '.flex-item', function () {
     var element = $(this).children()[0];
     $(element).text('Added!');
@@ -15,6 +17,7 @@ $(function() {
 
   $('.action-container').on( 'click', '#reset', function () {
     counter = 0;
+    var notify = new Notification('title', { body: 'Reset!' });
     $('#title').text('Add all the things!');
   });
 
