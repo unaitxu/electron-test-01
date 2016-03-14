@@ -18,10 +18,11 @@ $(function() {
   $('.action-container').on( 'click', '#reset', function () {
     counter = 0;
     var options = {
-      body: 'Reset all the things!',
-      icon: '../images/all-the-things.jpg'
-    }
-    var n = new Notification('Calc reset', options);
+        body: 'Reset all the things!',
+        icon: 'http://lorempixel.com/50/50/'
+    };
+    var notification = new Notification('Calc reset', options);
+    setTimeout(notification.close.bind(notification), 2000);
     $('#title').text('Add all the things!');
   });
 
