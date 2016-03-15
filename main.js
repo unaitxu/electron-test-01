@@ -5,8 +5,8 @@ var mainWindow = null;
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
-    height: 400,
-    width: 400,
+    height: 405,
+    width: 405,
     frame: false,
     center: true,
     resizable: false,

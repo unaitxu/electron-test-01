@@ -19,20 +19,29 @@ $(function() {
     counter = 0;
     var options = {
         body: 'Reset all the things!',
-        icon: 'http://lorempixel.com/50/50/'
+        icon: 'img/att_small.png'
     };
     var notification = new Notification('Calc reset', options);
-    setTimeout(notification.close.bind(notification), 2000);
+    setTimeout(notification.close.bind(notification), 5000);
     $('#title').text('Add all the things!');
+    resetTitle(counter);
   });
 
   $('.action-container').on( 'click', '#add', function () {
     status = 'add';
     $('#title').text('Add all the things!');
+    resetTitle(counter);
   });
 
   $('.action-container').on( 'click', '#substract', function () {
     status = 'substract';
     $('#title').text('Substract all the things!');
+    resetTitle(counter);
   });
 });
+
+function resetTitle(counter){
+  setTimeout(function(){
+    $('#title').text('Total count: ' + counter.toString());
+  },2000);
+}
