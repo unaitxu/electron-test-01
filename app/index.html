@@ -6,7 +6,7 @@
       <link href="css/index.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <h1 id="title" data-action="add">Add all the things!</h1>
     <div class="flex-container">
       <div class="flex-item">
         <span id="item-0">0</span>
@@ -37,6 +37,17 @@
       </div>
       <div class="flex-item">
         <span id="item-9">9</span>
+      </div>
+    </div>
+    <div class="action-container">
+      <div class="action-item" id="add">
+        <span id="add">+</span>
+      </div>
+      <div class="action-item" id="substract">
+        <span id="substract">-</span>
+      </div>
+      <div class="action-item" id="reset">
+        <span id="reset">C</span>
       </div>
     </div>
     <script>window.$ = window.jQuery = require('./js/jquery-2.2.1.js');</script>

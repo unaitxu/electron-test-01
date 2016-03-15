@@ -1,16 +1,15 @@
-'use strict';
-
 var app = require('app');
 var BrowserWindow = require('browser-window');
+var Tray = require('tray');
 var mainWindow = null;
-
-// require('electron-reload')(__dirname);
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
     height: 400,
     width: 400,
-    frame: false
+    frame: false,
+    center: true,
+    resizable: false,
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/app/index.html');
