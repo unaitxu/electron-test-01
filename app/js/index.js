@@ -3,9 +3,9 @@ $(function() {
   var status = 'add';
   Notification.requestPermission();
 
-  $('.flex-container').on( 'click', '.flex-item', function () {
+  $('.flex-container').on( 'click', '.number', function () {
     var element = $(this).children()[0];
-    $(element).text('Added!');
+    $(element).text('Clicked!');
     setTimeout(function() { $(element).text(element.id.split('-')[1]); }, 1000);
     if (status == 'add') {
       counter += parseInt(element.id.split('-')[1]);
