@@ -8,6 +8,14 @@
   <body>
     <h1 id="title" data-action="add">Electron Calculator</h1>
     <div class="flex-container">
+      <div class="key action" id="reset">
+        <span id="reset">C</span>
+      </div>
+      <div class="screen">
+        <span>0</span>
+      </div>
+    </div>
+    <div class="flex-container">
       <div class="key number">
         <span id="item-1">1</span>
       </div>
@@ -17,6 +25,11 @@
       <div class="key number">
         <span id="item-3">3</span>
       </div>
+      <div class="key action" id="add">
+        <span id="add">+</span>
+      </div>
+    </div>
+    <div class="flex-container">
       <div class="key number">
         <span id="item-4">4</span>
       </div>
@@ -26,6 +39,11 @@
       <div class="key number">
         <span id="item-6">6</span>
       </div>
+      <div class="key action" id="substract">
+        <span id="substract">-</span>
+      </div>
+    </div>
+    <div class="action-container">
       <div class="key number">
         <span id="item-7">7</span>
       </div>
@@ -35,16 +53,8 @@
       <div class="key number">
         <span id="item-9">9</span>
       </div>
-    </div>
-    <div class="action-container">
-      <div class="key action" id="add">
-        <span id="add">+</span>
-      </div>
-      <div class="key action" id="substract">
-        <span id="substract">-</span>
-      </div>
-      <div class="key action" id="reset">
-        <span id="reset">C</span>
+      <div class="key action" id="notifly">
+        <span id="notifly">Notify</span>
       </div>
     </div>
     <script>window.$ = window.jQuery = require('./js/jquery-2.2.1.js');</script>

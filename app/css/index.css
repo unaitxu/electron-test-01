@@ -1,9 +1,6 @@
 html,
 body {
-  height: 100%;
-	background-size: cover;
   -webkit-app-region: drag;
-  background: #9dd2ea;
 	background: linear-gradient(rgb(50, 132, 190), rgb(0, 82, 190));
 	border-radius: 3px;
 }
@@ -21,6 +18,7 @@ h1 {
 }
 
 .key {
+  font: bold 16px Arial, sans-serif;
   -webkit-flex: 1 auto;
   display: -webkit-flex;
   border-radius: 5px;
@@ -45,4 +43,24 @@ h1 {
 
 .action {
   background: #ddecf9;
+}
+
+.screen {
+  font: bold 16px Arial, sans-serif;
+  -webkit-flex: 1 auto;
+  display: -webkit-flex;
+  border-radius: 5px;
+  justify-content: left;
+  padding-left: 10px;
+  align-items: center;
+  position: relative;
+  top: 0;
+  min-width: 250px;
+  height: 36px;
+  border-radius: 3px;
+  box-shadow: inset -4px -4px rgba(71, 132, 242, 0.6);
+  margin: 0 7px 11px 0;
+  color: black;
+  transition: all 0.2s ease;
+  background: rgb(121, 182, 242)
 }
