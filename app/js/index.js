@@ -1,6 +1,6 @@
 $(function() {
   var counter = 0;
-  var status = 'add';
+  var status = '';
   Notification.requestPermission();
 
   $('.flex-container').on( 'click', '.number', function () {
@@ -8,33 +8,40 @@ $(function() {
     $('.screen').text($('.screen').text().trim() + $(element).text().toString());
   });
 
-  $('.action-container').on( 'click', '#reset', function () {
-    counter = 0;
+  $('.action-container').on( 'click', '#notify', function () {
     var options = {
-        body: 'Reset all the things!',
+        body: 'Notify all the things!',
         icon: 'img/att_small.png'
     };
-    var notification = new Notification('Calc reset', options);
+    var notification = new Notification(counter.toString(), options);
     setTimeout(notification.close.bind(notification), 5000);
-    $('#title').text('Add all the things!');
-    resetTitle(counter);
   });
 
   $('.action-container').on( 'click', '#add', function () {
-    status = 'add';
-    $('#title').text('Add all the things!');
-    resetTitle(counter);
+    if (status !== ''){
+      status = 'add';
+      value = $('.screen').text().trim().parseInt();
+      counter = value;
+      $('.screen').text($('.screen').text().trim() + '+');
+    } else {
+      // Control the error
+    }
   });
 
   $('.action-container').on( 'click', '#substract', function () {
-    status = 'substract';
-    $('#title').text('Substract all the things!');
-    resetTitle(counter);
+    if (status !== ''){
+      status = 'substract';
+      value = $('.screen').text().trim().parseInt();
+      counter = value;
+      $('.screen').text($('.screen').text().trim() + '-');
+    } else {
+      // Control the error
+    }
+  });
+
+  $('.action-container').on( 'click', '#reset', function () {
+    status = '';
+    counter = 0;
+    $('.screen').text();
   });
 });
-
-function resetTitle(counter){
-  setTimeout(function(){
-    $('#title').text('Total count: ' + counter.toString());
-  },2000);
-}
