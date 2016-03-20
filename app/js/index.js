@@ -17,10 +17,10 @@ $(function() {
     setTimeout(notification.close.bind(notification), 5000);
   });
 
-  $('.action-container').on( 'click', '#add', function () {
-    if (status !== ''){
+  $('body').on( 'click', '#add', function () {
+    if (status === ''){
       status = 'add';
-      value = $('.screen').text().trim().parseInt();
+      value = parseInt($('.screen').text().trim());
       counter = value;
       $('.screen').text($('.screen').text().trim() + '+');
     } else {
@@ -28,10 +28,10 @@ $(function() {
     }
   });
 
-  $('.action-container').on( 'click', '#substract', function () {
-    if (status !== ''){
+  $('body').on( 'click', '#substract', function () {
+    if (status === ''){
       status = 'substract';
-      value = $('.screen').text().trim().parseInt();
+      value = parseInt($('.screen').text().trim());
       counter = value;
       $('.screen').text($('.screen').text().trim() + '-');
     } else {
@@ -39,7 +39,7 @@ $(function() {
     }
   });
 
-  $('.action-container').on( 'click', '#reset', function () {
+  $('.action').on( 'click', '#reset', function () {
     status = '';
     counter = 0;
     $('.screen').text();
