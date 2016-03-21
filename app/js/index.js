@@ -18,30 +18,46 @@ $(function() {
   });
 
   $('body').on( 'click', '#add', function () {
+    var screen = $('.screen').text().trim();
     if (status === ''){
       status = 'add';
-      value = parseInt($('.screen').text().trim());
+      value = parseInt(screen);
       counter = value;
-      $('.screen').text($('.screen').text().trim() + '+');
+      $('.screen').text(screen + '+');
     } else {
-      // Control the error
+      var vArray = screen.split('+');
+      if (vArray.length > 1) {
+        counter = parseInt(vArray[0]) + parseInt(vArray[1]);
+      } else {
+        vArray = screen.split('-');
+        counter = parseInt(vArray[0]) - parseInt(vArray[1]);
+      }
+      $('.screen').text(counter.toString() + '+');
     }
   });
 
   $('body').on( 'click', '#substract', function () {
+    var screen = $('.screen').text().trim();
     if (status === ''){
       status = 'substract';
-      value = parseInt($('.screen').text().trim());
+      value = parseInt(screen);
       counter = value;
-      $('.screen').text($('.screen').text().trim() + '-');
+      $('.screen').text(screen + '-');
     } else {
-      // Control the error
+      var vArray = screen.split('-');
+      if (vArray.length > 1) {
+        counter = parseInt(vArray[0]) - parseInt(vArray[1]);
+      } else {
+        vArray = screen.split('+');
+        counter = parseInt(vArray[0]) + parseInt(vArray[1]);
+      }
+      $('.screen').text(counter.toString() + '-');
     }
   });
 
-  $('.action').on( 'click', '#reset', function () {
+  $('body').on( 'click', '#reset', function () {
     status = '';
     counter = 0;
-    $('.screen').text();
+    $('.screen').text('');
   });
 });

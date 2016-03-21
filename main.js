@@ -9,7 +9,7 @@ app.on('ready', function() {
     width: 400,
     frame: false,
     center: true,
-    // resizable: false,
+    resizable: false,
   });
 
   mainWindow.loadUrl('file://' + __dirname + '/app/index.html');
