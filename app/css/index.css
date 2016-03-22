@@ -15,6 +15,7 @@ h1 {
   display: flex;
   -webkit-flex-flow: row wrap;
   -webkit-app-region: no-drag;
+  width: 100%;
 }
 
 .key {
@@ -35,6 +36,10 @@ h1 {
 	color: #888;
 	user-select: none;
 	transition: all 0.2s ease;
+}
+
+.key:last-child {
+    margin-right: 0;
 }
 
 .number {
@@ -59,7 +64,7 @@ h1 {
   height: 36px;
   border-radius: 3px;
   box-shadow: inset -4px -4px rgba(71, 132, 242, 0.6);
-  margin: 0 7px 11px 0;
+  margin: 0 0 11px 0;
   color: black;
   transition: all 0.2s ease;
   background: rgb(121, 182, 242)

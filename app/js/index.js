@@ -8,7 +8,7 @@ $(function() {
     $('.screen').text($('.screen').text().trim() + $(element).text().toString());
   });
 
-  $('.action-container').on( 'click', '#notify', function () {
+  $('.flex-container').on( 'click', '#notify', function () {
     var options = {
         body: 'Notify all the things!',
         icon: 'img/att_small.png'
