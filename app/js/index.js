@@ -60,4 +60,24 @@ $(function() {
     counter = 0;
     $('.screen').text('');
   });
+
+  $('body').on( 'click', '#equal', function () {
+    var screen = $('.screen').text().trim();
+    if (status === ''){
+      counter = parseInt(screen);
+    } else if (status == 'add') {
+      counter = counter + parseInt(screen.split('-')[1]);
+    } else if (status == 'substract') {
+      counter = counter - parseInt(screen.split('-')[1]);
+    }
+    var options = {
+        body: 'Result: ' + counter.toString(),
+        icon: 'img/att_small.png'
+    };
+    var notification = new Notification('Result', options);
+    setTimeout(notification.close.bind(notification), 5000);
+    status = '';
+    counter = 0;
+    $('.screen').text('');
+  });
 });
