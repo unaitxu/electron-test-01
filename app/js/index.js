@@ -3,6 +3,28 @@ $(function() {
   var status = '';
   Notification.requestPermission();
 
+  function withoutStatus() {
+    var vArray = ''
+    var screen = $('.screen').text().trim();
+    switch (status) {
+      case 'add':
+      vArray = screen.split('+');
+      counter = parseInt(vArray[0]) + parseInt(vArray[1]);
+        break;
+      case 'substract':
+      vArray = screen.split('-');
+      counter = parseInt(vArray[0]) - parseInt(vArray[1]);
+        break;
+      case 'mult':
+      vArray = screen.split('x');
+      counter = parseInt(vArray[0]) * parseInt(vArray[1]);
+        break;
+      default:
+      vArray = screen.split('/');
+      counter = parseInt(vArray[0]) / parseInt(vArray[1]);
+    }
+  }
+
   $('.flex-container').on( 'click', '.number', function () {
     var element = $(this).children()[0];
     $('.screen').text($('.screen').text().trim() + $(element).text().toString());
@@ -25,13 +47,7 @@ $(function() {
       counter = value;
       $('.screen').text(screen + '+');
     } else {
-      var vArray = screen.split('+');
-      if (vArray.length > 1) {
-        counter = parseInt(vArray[0]) + parseInt(vArray[1]);
-      } else {
-        vArray = screen.split('-');
-        counter = parseInt(vArray[0]) - parseInt(vArray[1]);
-      }
+      withoutStatus();
       $('.screen').text(counter.toString() + '+');
     }
   });
@@ -44,14 +60,21 @@ $(function() {
       counter = value;
       $('.screen').text(screen + '-');
     } else {
-      var vArray = screen.split('-');
-      if (vArray.length > 1) {
-        counter = parseInt(vArray[0]) - parseInt(vArray[1]);
-      } else {
-        vArray = screen.split('+');
-        counter = parseInt(vArray[0]) + parseInt(vArray[1]);
-      }
+      withoutStatus();
       $('.screen').text(counter.toString() + '-');
+    }
+  });
+
+  $('body').on( 'click', '#mult', function () {
+    var screen = $('.screen').text().trim();
+    if (status === ''){
+      status = 'mult';
+      value = parseInt(screen);
+      counter = value;
+      $('.screen').text(screen + 'x');
+    } else {
+      withoutStatus();
+      $('.screen').text(counter.toString() + 'x');
     }
   });
 
