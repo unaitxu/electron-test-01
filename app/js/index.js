@@ -3,6 +3,25 @@ $(function() {
   var status = '';
   Notification.requestPermission();
 
+  function withStatus() {
+    var screen = $('.screen').text().trim();
+    if (screen.split('+').length > 1) {
+      vArray = screen.split('+');
+      counter = parseInt(vArray[0]) + parseInt(vArray[1]);
+    } else if (screen.split('-').length > 1) {
+      vArray = screen.split('-');
+      counter = parseInt(vArray[0]) - parseInt(vArray[1]);
+    } else if (screen.split('x').length > 1) {
+      vArray = screen.split('x');
+      counter = parseInt(vArray[0]) * parseInt(vArray[1]);
+    } else if (screen.split('/').length > 1) {
+      vArray = screen.split('/');
+      counter = parseInt(vArray[0]) / parseInt(vArray[1]);
+    } else {
+      counter = parseInt(screen);
+    }
+  }
+
   function withoutStatus() {
     var vArray = ''
     var screen = $('.screen').text().trim();
@@ -47,7 +66,7 @@ $(function() {
       counter = value;
       $('.screen').text(screen + '+');
     } else {
-      withoutStatus();
+      withStatus();
       $('.screen').text(counter.toString() + '+');
     }
   });
@@ -60,7 +79,7 @@ $(function() {
       counter = value;
       $('.screen').text(screen + '-');
     } else {
-      withoutStatus();
+      withStatus();
       $('.screen').text(counter.toString() + '-');
     }
   });
@@ -73,7 +92,7 @@ $(function() {
       counter = value;
       $('.screen').text(screen + 'x');
     } else {
-      withoutStatus();
+      withStatus();
       $('.screen').text(counter.toString() + 'x');
     }
   });
